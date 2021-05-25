@@ -4,8 +4,8 @@ import br.com.alura.orgs.model.Produto
 
 class ProdutosDao {
 
-    fun adiciona(produto: Produto){
-        produtos.add(produto)
+    fun adiciona(vararg produtos: Produto){
+        Companion.produtos.addAll(produtos)
     }
 
     fun buscaTodos() : List<Produto> {
