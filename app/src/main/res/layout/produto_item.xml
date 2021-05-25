@@ -57,7 +57,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.3"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                 />
 
             <TextView
                 android:id="@+id/produto_item_valor"

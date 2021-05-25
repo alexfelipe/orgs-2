@@ -2,17 +2,16 @@ package br.com.alura.orgs.ui.recyclerview.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs.R
 import br.com.alura.orgs.databinding.ProdutoItemBinding
 import br.com.alura.orgs.model.Produto
+import coil.load
 
 class ListaProdutosAdapter(
-        private val context: Context,
-        produtos: List<Produto>
+    private val context: Context,
+    produtos: List<Produto>
 ) : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
     private val produtos = produtos.toMutableList()
@@ -27,6 +26,11 @@ class ListaProdutosAdapter(
             descricao.text = produto.descricao
             val valor = binding.produtoItemValor
             valor.text = produto.valor.toPlainString()
+            binding.produtoItemImagem.load("https://picsum.photos/f") {
+                placeholder(R.drawable.placeholder)
+                error(R.drawable.placeholder_error)
+                crossfade(true)
+            }
         }
 
     }
