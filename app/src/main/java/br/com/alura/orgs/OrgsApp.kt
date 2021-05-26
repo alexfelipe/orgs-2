@@ -12,7 +12,7 @@ class OrgsApp : Application() {
         ProdutosDao()
             .adiciona(
                 Produto(
-                    nome = "cesta de frutas",
+                    nome = "Cesta de frutas",
                     descricao = "laranja, manga, mamão e maçã",
                     valor = BigDecimal("23.49")
                 ),

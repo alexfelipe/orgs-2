@@ -26,30 +26,30 @@ class FormularioProdutoActivity : AppCompatActivity() {
         val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
         val dao = ProdutosDao()
         botaoSalvar.setOnClickListener {
-            val produtoNovo = criaProduto()
-            dao.adiciona(produtoNovo)
+//            val produtoNovo = criaProduto()
+//            dao.adiciona(produtoNovo)
             finish()
         }
     }
 
-    private fun criaProduto(): Produto {
-        val campoNome = binding.activityFormularioProdutoNome
-        val nome = campoNome.text.toString()
-        val campoDescricao = binding.activityFormularioProdutoDescricao
-        val descricao = campoDescricao.text.toString()
-        val campoValor = binding.activityFormularioProdutoValor
-        val valorEmTexto = campoValor.text.toString()
-        val valor = if (valorEmTexto.isBlank()) {
-            BigDecimal.ZERO
-        } else {
-            BigDecimal(valorEmTexto)
-        }
-
-        return Produto(
-            nome = nome,
-            descricao = descricao,
-            valor = valor
-        )
-    }
+//    private fun criaProduto(): Produto {
+//        val campoNome = binding.activityFormularioProdutoNome
+//        val nome = campoNome.text.toString()
+//        val campoDescricao = binding.activityFormularioProdutoDescricao
+//        val descricao = campoDescricao.text.toString()
+//        val campoValor = binding.activityFormularioProdutoValor
+//        val valorEmTexto = campoValor.text.toString()
+//        val valor = if (valorEmTexto.isBlank()) {
+//            BigDecimal.ZERO
+//        } else {
+//            BigDecimal(valorEmTexto)
+//        }
+//
+//        return Produto(
+//            nome = nome,
+//            descricao = descricao,
+//            valor = valor
+//        )
+//    }
 
 }
