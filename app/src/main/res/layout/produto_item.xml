@@ -27,6 +27,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/montserrat_bold"
                 android:maxLines="1"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,14 +51,14 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/placeholder"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.3"
-                 />
+                app:srcCompat="@drawable/placeholder"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/produto_item_valor"
@@ -65,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_bold"
                 android:lines="1"
                 android:textColor="@color/green_500"
                 android:textSize="18sp"

@@ -39,9 +39,9 @@ class ListaProdutosAdapter(
             descricao.text = produto.descricao
             val valor = binding.produtoItemValor
             valor.text = produto.valor.formataParaMoedaBrasileira()
-            binding.produtoItemImagem.load("https://picsum.photos/300/300") {
+            binding.produtoItemImagem.load(produto.imagem) {
                 placeholder(R.drawable.placeholder)
-                error(R.drawable.placeholder_error)
+                error(R.drawable.erro)
                 crossfade(true)
             }
         }

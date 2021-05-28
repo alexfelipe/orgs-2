@@ -23,7 +23,7 @@ class ListaProdutosActivity : AppCompatActivity() {
         configuraFab()
         adapter.noCliqueDoItemListener = { produto ->
             Intent(this, DetalhesProdutoActivity::class.java).let {
-                it.putExtra("produto", produto)
+                it.putExtra(PRODUTO, produto)
                 startActivity(it)
             }
         }

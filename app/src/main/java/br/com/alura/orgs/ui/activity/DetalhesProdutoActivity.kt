@@ -1,7 +1,9 @@
 package br.com.alura.orgs.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import br.com.alura.orgs.R
 import br.com.alura.orgs.databinding.ActivityDetalhesProdutoBinding
 import br.com.alura.orgs.extensions.formataParaMoedaBrasileira
 import br.com.alura.orgs.model.Produto
@@ -18,15 +20,32 @@ class DetalhesProdutoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        intent.getParcelableExtra<Produto>("produto")?.let {
+        tentaCarregarProduto()
+    }
+
+    private fun tentaCarregarProduto() {
+        intent.getParcelableExtra<Produto>(PRODUTO)?.let {
             this.produto = it
         }
-
         if (::produto.isInitialized) {
-            binding.activityDetalhesProdutoNome.text = produto.nome
-            binding.activityDetalhesProdutoDescricao.text = produto.descricao
-            binding.activityDetalhesProdutoValor.text = produto.valor.formataParaMoedaBrasileira()
-            binding.activityDetalhesProdutoImagem.load("https://picsum.photos/300/300")
+            preencheCampos()
+        } else {
+            finish()
+            Toast.makeText(
+                this,
+                "Falha ao carregar o produto",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun preencheCampos() {
+        binding.activityDetalhesProdutoNome.text = produto.nome
+        binding.activityDetalhesProdutoDescricao.text = produto.descricao
+        binding.activityDetalhesProdutoValor.text = produto.valor.formataParaMoedaBrasileira()
+        binding.activityDetalhesProdutoImagem.load(produto.imagem) {
+            placeholder(R.drawable.placeholder)
+            error(R.drawable.erro)
         }
     }
 

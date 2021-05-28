@@ -6,7 +6,8 @@ import java.math.BigDecimal
 
 @Parcelize
 data class Produto(
-        val nome: String,
-        val descricao: String,
-        val valor: BigDecimal
+    val nome: String,
+    val descricao: String,
+    val valor: BigDecimal,
+    val imagem: String = ""
 ) : Parcelable

@@ -11,7 +11,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_400">#bdbdbd</color>
 
-    <color name="primaryColor">#43a047</color>
+    <color name="primaryColor">#4CAF50</color>
     <color name="primaryLightColor">#76d275</color>
     <color name="primaryDarkColor">#00701a</color>
     <color name="secondaryColor">#43a047</color>

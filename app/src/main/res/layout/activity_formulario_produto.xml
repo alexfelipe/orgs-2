@@ -11,6 +11,19 @@
         android:layout_height="wrap_content"
         tools:context=".ui.activity.FormularioProdutoActivity">
 
+        <ImageView
+            android:id="@+id/activity_formulario_produto_imagem"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/imagem_padrao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
         <Button
             android:id="@+id/activity_formulario_produto_botao_salvar"
             android:layout_width="0dp"
@@ -19,7 +32,9 @@
             android:text="Salvar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textinput_valor"
+            app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textinput_nome"
@@ -29,7 +44,7 @@
             android:layout_margin="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_imagem">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/activity_formulario_produto_nome"
