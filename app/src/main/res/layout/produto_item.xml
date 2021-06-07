@@ -17,14 +17,19 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
+            app:layout_constraintWidth_percent="0.3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/produto_item_nome"
-            app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.3"
             app:srcCompat="@drawable/produto_1"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <!--        <androidx.constraintlayout.widget.Guideline-->
+        <!--            android:id="@+id/produto_item_guideline"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            app:layout_constraintGuide_percent="0.3" />-->
 
         <TextView
             android:id="@+id/produto_item_nome"
@@ -45,6 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:fontFamily="@font/montserrat"
             android:maxLines="1"
             app:layout_constraintEnd_toEndOf="@id/produto_item_nome"
             app:layout_constraintStart_toStartOf="@id/produto_item_nome"
@@ -57,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/green_500"
             android:textSize="18sp"
             android:textStyle="bold"

@@ -8,10 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs.R
 import br.com.alura.orgs.model.Produto
+import java.text.NumberFormat
+import java.util.*
+import java.util.logging.SimpleFormatter
 
 class ListaProdutosAdapter(
-        private val context: Context,
-        produtos: List<Produto>
+    private val context: Context,
+    produtos: List<Produto>
 ) : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
     private val produtos = produtos.toMutableList()
@@ -23,8 +26,12 @@ class ListaProdutosAdapter(
             nome.text = produto.nome
             val descricao = itemView.findViewById<TextView>(R.id.produto_item_descricao)
             descricao.text = produto.descricao
+
+            val valorFormatado = NumberFormat
+                .getCurrencyInstance(Locale("pt", "br"))
+                .format(produto.valor)
             val valor = itemView.findViewById<TextView>(R.id.produto_item_valor)
-            valor.text = produto.valor.toPlainString()
+            valor.text = valorFormatado
         }
 
     }
