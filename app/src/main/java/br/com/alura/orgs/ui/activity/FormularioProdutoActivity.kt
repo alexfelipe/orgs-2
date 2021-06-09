@@ -20,6 +20,7 @@ class FormularioProdutoActivity :
     private val binding by lazy {
         ActivityFormularioProdutoBinding.inflate(layoutInflater)
     }
+    private var url: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +38,7 @@ class FormularioProdutoActivity :
                     .setPositiveButton(
                         "confirmar"
                     ) { _, _ ->
-                        val url = formularioImagemUrl.text.toString()
+                        url = formularioImagemUrl.text.toString()
                         binding.activityFormularioProdutoImagem.load(url)
                     }
                     .setNegativeButton("cancelar") { _, _ ->
@@ -77,7 +78,8 @@ class FormularioProdutoActivity :
         return Produto(
             nome = nome,
             descricao = descricao,
-            valor = valor
+            valor = valor,
+            imagem = url
         )
     }
 

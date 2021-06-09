@@ -17,7 +17,8 @@ class ProdutosDao {
         private val produtos = mutableListOf(Produto(
             nome = "Cesta de frutas",
             "Laranja, Manga e Maçã",
-            BigDecimal(12.99)
+            valor = BigDecimal(12.99),
+            imagem = "https://images.pexels.com/photos/2135677/pexels-photo-2135677.jpeg"
         ))
     }
 

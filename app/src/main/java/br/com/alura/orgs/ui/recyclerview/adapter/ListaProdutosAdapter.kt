@@ -34,7 +34,7 @@ class ListaProdutosAdapter(
                 .format(produto.valor)
             val valor = binding.produtoItemValor
             valor.text = valorFormatado
-            binding.produtoItemImageview.load("https://images.pexels.com/photos/2288683/pexels-photo-2288683.jpeg")
+            binding.produtoItemImageview.load(produto.imagem)
         }
 
     }
