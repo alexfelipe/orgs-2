@@ -11,6 +11,7 @@ import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding
 import br.com.alura.orgs.databinding.FormularioImagemBinding
 import br.com.alura.orgs.model.Produto
+import coil.load
 import java.math.BigDecimal
 
 class FormularioProdutoActivity :
@@ -24,19 +25,28 @@ class FormularioProdutoActivity :
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.activityFormularioProdutoImagem.setOnClickListener {
-            val binding = FormularioImagemBinding.inflate(layoutInflater)
 
-            AlertDialog.Builder(this)
-                .setView(binding.root)
-                .setPositiveButton(
-                    "confirmar"
-                ) { _, _ ->
-                    Log.i("ListaProdutosActivity", "onCreate: botão confirmar clicado")
+            FormularioImagemBinding.inflate(layoutInflater).apply {
+                formularioImagemBotaoCarregar.setOnClickListener {
+                    val url = formularioImagemUrl.text.toString()
+                    formularioImagemImageview.load(url)
                 }
-                .setNegativeButton("cancelar") { _, _ ->
-                    Log.i("ListaProdutosActivity", "onCreate: botão cancelar clicado")
-                }
-                .show()
+
+                AlertDialog.Builder(this@FormularioProdutoActivity)
+                    .setView(root)
+                    .setPositiveButton(
+                        "confirmar"
+                    ) { _, _ ->
+                        val url = formularioImagemUrl.text.toString()
+                        binding.activityFormularioProdutoImagem.load(url)
+                    }
+                    .setNegativeButton("cancelar") { _, _ ->
+                        Log.i("ListaProdutosActivity", "onCreate: botão cancelar clicado")
+                    }
+                    .show()
+            }
+
+
         }
         configuraBotaoSalvar()
     }
@@ -65,9 +75,9 @@ class FormularioProdutoActivity :
         }
 
         return Produto(
-                nome = nome,
-                descricao = descricao,
-                valor = valor
+            nome = nome,
+            descricao = descricao,
+            valor = valor
         )
     }
 
