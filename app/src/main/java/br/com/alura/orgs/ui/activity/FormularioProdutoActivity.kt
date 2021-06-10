@@ -10,7 +10,9 @@ import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding
 import br.com.alura.orgs.databinding.FormularioImagemBinding
+import br.com.alura.orgs.extensions.tentaCarregarImagem
 import br.com.alura.orgs.model.Produto
+import br.com.alura.orgs.ui.dialog.FormularioImagemDialog
 import coil.load
 import java.math.BigDecimal
 
@@ -27,26 +29,10 @@ class FormularioProdutoActivity :
         setContentView(binding.root)
         binding.activityFormularioProdutoImagem.setOnClickListener {
 
-            FormularioImagemBinding.inflate(layoutInflater).apply {
-                formularioImagemBotaoCarregar.setOnClickListener {
-                    val url = formularioImagemUrl.text.toString()
-                    formularioImagemImageview.load(url)
-                }
-
-                AlertDialog.Builder(this@FormularioProdutoActivity)
-                    .setView(root)
-                    .setPositiveButton(
-                        "confirmar"
-                    ) { _, _ ->
-                        url = formularioImagemUrl.text.toString()
-                        binding.activityFormularioProdutoImagem.load(url)
-                    }
-                    .setNegativeButton("cancelar") { _, _ ->
-                        Log.i("ListaProdutosActivity", "onCreate: botão cancelar clicado")
-                    }
-                    .show()
+            FormularioImagemDialog(this).mostra(url) {
+                url = it
+                binding.activityFormularioProdutoImagem.tentaCarregarImagem(url)
             }
-
 
         }
         configuraBotaoSalvar()
